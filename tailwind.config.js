@@ -7,7 +7,12 @@ module.exports = {
       colors: {
         purple: "#5E08CE",
         gray: "#F6F6F6",
+        "gray-300": "#D8D8D8",
       },
+    },
+
+    maxWidth: {
+      lg: "1500px",
     },
   },
   variants: {
