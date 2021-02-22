@@ -3,9 +3,7 @@
     <template #navigation>
       <NavBar />
     </template>
-    <template #content>
-      <router-view />
-    </template>
+    <router-view />
   </Page>
 </template>
 

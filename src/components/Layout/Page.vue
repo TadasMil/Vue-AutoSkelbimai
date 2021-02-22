@@ -9,7 +9,7 @@
   <div class="tw-max-w-lg tw-mx-auto">
     <div class="tw-w-11/12 tw-mx-auto">
       <div class="tw-w-11/12 tw-mx-auto">
-        <slot name="content"></slot>
+        <slot />
       </div>
     </div>
   </div>
