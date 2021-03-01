@@ -3,31 +3,37 @@ import { getStaticData } from "../composables/getStaticData";
 export const optionsFrom = {
   price: {
     name: "Kaina",
+    model: "price",
     from: getStaticData(0, 500, 100000),
     to: getStaticData(0, 500, 100000),
   },
   power: {
     name: "Galia, kw",
+    model: "power",
     from: getStaticData(30, 12, 500),
     to: getStaticData(30, 12, 500),
   },
   run: {
     name: "Rida",
+    model: "miles",
     from: getStaticData(0, 5000, 500000),
     to: getStaticData(0, 5000, 500000),
   },
   year: {
     name: "Metai",
-    from: getStaticData(1970, 1, 2021),
-    to: getStaticData(1970, 1, 2021),
+    model: "year",
+    from: getStaticData(1970, 1, 2020).sort((a, b) => a + b),
+    to: getStaticData(1970, 1, 2021).sort((a, b) => a + b),
   },
   volume: {
     name: "Tūris (litrai)",
+    model: "volume",
     from: getStaticData(0.8, 0.1, 7),
     to: getStaticData(0.8, 0.1, 7),
   },
   numberOfSeats: {
     name: "Sėdimų vietų skaičius",
+    model: "numberOfSeats",
     from: getStaticData(1, 1, 9),
     to: getStaticData(1, 1, 9),
   },
@@ -36,17 +42,17 @@ export const optionsFrom = {
 export const options = {
   brand: {
     name: "Markė",
-    type: "brand",
+    model: "brand",
     data: [],
   },
   model: {
-    type: "model",
+    model: "model",
     name: "Modelis",
     data: [],
   },
   fuelType: {
     name: "Kuro tipas",
-    type: "fuelType",
+    model: "fuelType",
     data: [
       {
         id: 1,
@@ -79,7 +85,7 @@ export const options = {
     ],
   },
   wheelPosition: {
-    type: "wheelPosition",
+    model: "wheelPosition",
     name: "Vairo padėtis",
     data: [
       {
@@ -94,12 +100,12 @@ export const options = {
   },
   city: {
     name: "Miestas",
-    type: "city",
+    model: "city",
     data: [],
   },
   gear: {
     name: "Pavarų dėžė",
-    type: "gear",
+    model: "gear",
     data: [
       {
         id: 1,
@@ -113,7 +119,7 @@ export const options = {
   },
   wheels: {
     name: "Varomieji ratai",
-    type: "wheels",
+    model: "wheels",
     data: [
       {
         id: 1,
@@ -131,17 +137,17 @@ export const options = {
   },
   bodyType: {
     name: "Kėbulo tipas",
-    type: "bodyType",
+    model: "bodyType",
     data: [],
   },
   color: {
     name: "Spalva",
-    type: "color",
+    model: "color",
     data: [],
   },
   firstRegistration: {
     name: "Pirmoji registracija",
-    type: "firstRegistration",
+    model: "firstRegistration",
     data: [],
   },
 };

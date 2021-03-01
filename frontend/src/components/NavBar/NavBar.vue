@@ -1,22 +1,24 @@
 <template>
   <nav class="tw-flex tw-justify-between tw-align-center">
-    <Title />
+    <router-link :to="{ name: 'Home' }">
+      <NavTitle />
+    </router-link>
     <div class="tw-flex">
       <NavLink v-for="navItem in navItems" :key="navItem.id" v-bind="navItem" />
-      <LinkButton name="Pridėti skelbimą" :to="{ name: 'Home' }" />
+      <LinkButton name="Pridėti skelbimą" :to="{ name: 'NewAdvert' }" />
     </div>
   </nav>
 </template>
 
 <script>
-import Title from "../Title/Title.vue";
+import NavTitle from "../Title/NavTitle.vue";
 import NavLink from "./NavLink.vue";
 import LinkButton from "../Buttons/LinkButton.vue";
 
 export default {
   name: "NavBar",
   components: {
-    Title,
+    NavTitle,
     NavLink,
     LinkButton,
   },

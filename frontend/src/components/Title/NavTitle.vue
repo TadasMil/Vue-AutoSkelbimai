@@ -8,7 +8,7 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "NavTitle",
+};
 </script>
-
-<style></style>
