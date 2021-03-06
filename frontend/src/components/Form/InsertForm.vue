@@ -9,7 +9,9 @@
         <label>{{ select.name }}</label>
         <InsertSelect
           :data="select.data || select.from"
-          v-model="inputValues[select.model]"
+          v-model="
+            inputValues[select.model.from ? select.model.from : select.model]
+          "
         />
       </div>
       <div
@@ -18,7 +20,11 @@
         class="tw-flex tw-flex-col tw-w-2/6 tw-py-2"
       >
         <label>{{ select.name }}</label>
-        <Input v-model="inputValues[select.model]" />
+        <Input
+          v-model="
+            inputValues[select.model.from ? select.model.from : select.model]
+          "
+        />
       </div>
     </div>
     <InsertImage @insertImage="handleImage" :images="images" />
@@ -33,7 +39,7 @@
 <script>
 import { onMounted, reactive, toRefs, watch, watchEffect } from "vue";
 import axios from "axios";
-import { options, optionsFrom } from "../../utilities/options";
+import { options, optionsFrom, inputTypes } from "../../utilities/options";
 import { useModelOrBrand } from "../../composables/useModelOrBrand.js";
 
 import InsertSelect from "./InsertSelect.vue";
@@ -71,27 +77,7 @@ export default {
     ];
 
     const state = reactive({
-      inputValues: {
-        brand: "",
-        model: "",
-        fuelType: "",
-        wheelPosition: "",
-        city: "",
-        gear: "",
-        wheels: "",
-        bodyType: "",
-        color: "",
-        firstRegistration: "",
-        description: "",
-        price: "",
-        power: "",
-        miles: "",
-        year: "",
-        volume: "",
-        seats: "",
-        phone: "",
-        email: "",
-      },
+      inputValues: { ...inputTypes },
       brands: { ...options.brand },
       models: { ...options.model },
       images: [],
@@ -100,12 +86,13 @@ export default {
         options.wheels,
         options.fuelType,
         options.wheelPosition,
-        optionsFrom.numberOfSeats,
+        optionsFrom.seats,
         optionsFrom.year,
       ],
     });
 
     onMounted(async () => {
+      console.log(state.inputValues);
       await getBrands();
     });
 
@@ -117,7 +104,7 @@ export default {
     });
 
     watch(
-      () => state.inputValues.brand,
+      () => state.inputValues.name,
       (selected, oldValue) => {
         if (selected !== oldValue) {
           getModels();
@@ -138,7 +125,7 @@ export default {
     const getModels = async () => {
       await axios
         .get(
-          `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${state.inputValues.brand}?format=json`
+          `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${state.inputValues.name}?format=json`
         )
         .then((response) => {
           state.models.data = useModelOrBrand(response.data.Results, false);
@@ -170,23 +157,7 @@ export default {
         phoneNumber: state.inputValues.phone,
         email: state.inputValues.email,
         car: {
-          model: state.inputValues.model,
-          fuelType: state.inputValues.fuelType,
-          wheelPosition: state.inputValues.wheelPosition,
-          city: state.inputValues.city,
-          gear: state.inputValues.gear,
-          wheels: state.inputValues.wheels,
-          bodyType: state.inputValues.bodyType,
-          color: state.inputValues.color,
-          firstRegistration: state.inputValues.firstRegistration,
-          description: "smthstate..",
-          price: state.inputValues.price,
-          power: state.inputValues.power,
-          miles: state.inputValues.miles,
-          year: state.inputValues.year,
-          volume: state.inputValues.volume,
-          seats: state.inputValues.numberOfSeats,
-          name: state.inputValues.brand,
+          ...state.inputValues,
           images: state.images,
         },
       };

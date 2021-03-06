@@ -3,37 +3,55 @@ import { getStaticData } from "../composables/getStaticData";
 export const optionsFrom = {
   price: {
     name: "Kaina",
-    model: "price",
+    model: {
+      from: "price",
+      to: "priceTo",
+    },
     from: getStaticData(0, 500, 100000),
     to: getStaticData(0, 500, 100000),
   },
   power: {
     name: "Galia, kw",
-    model: "power",
+    model: {
+      from: "power",
+      to: "powerTo",
+    },
     from: getStaticData(30, 12, 500),
     to: getStaticData(30, 12, 500),
   },
   run: {
     name: "Rida",
-    model: "miles",
+    model: {
+      from: "miles",
+      to: "milesTo",
+    },
     from: getStaticData(0, 5000, 500000),
     to: getStaticData(0, 5000, 500000),
   },
   year: {
     name: "Metai",
-    model: "year",
+    model: {
+      from: "year",
+      to: "yearTo",
+    },
     from: getStaticData(1970, 1, 2020).sort((a, b) => a + b),
     to: getStaticData(1970, 1, 2021).sort((a, b) => a + b),
   },
   volume: {
     name: "Tūris (litrai)",
-    model: "volume",
+    model: {
+      from: "volume",
+      to: "volumeTo",
+    },
     from: getStaticData(0.8, 0.1, 7),
     to: getStaticData(0.8, 0.1, 7),
   },
-  numberOfSeats: {
+  seats: {
     name: "Sėdimų vietų skaičius",
-    model: "numberOfSeats",
+    model: {
+      from: "seats",
+      to: "seatsTo",
+    },
     from: getStaticData(1, 1, 9),
     to: getStaticData(1, 1, 9),
   },
@@ -42,7 +60,7 @@ export const optionsFrom = {
 export const options = {
   brand: {
     name: "Markė",
-    model: "brand",
+    model: "name",
     data: [],
   },
   model: {
@@ -150,4 +168,32 @@ export const options = {
     model: "firstRegistration",
     data: [],
   },
+};
+
+export const inputTypes = {
+  name: "",
+  model: "",
+  fuelType: "",
+  wheelPosition: "",
+  city: "",
+  gear: "",
+  wheels: "",
+  bodyType: "",
+  color: "",
+  firstRegistration: "",
+  description: "",
+  price: "",
+  priceTo: "",
+  power: "",
+  powerTo: "",
+  miles: "",
+  milesTo: "",
+  year: "",
+  yearTo: "",
+  volume: "",
+  volumeTo: "",
+  seats: "",
+  seatsTo: "",
+  phone: "",
+  email: "",
 };

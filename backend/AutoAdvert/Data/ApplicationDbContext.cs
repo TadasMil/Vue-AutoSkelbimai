@@ -34,10 +34,6 @@ namespace AutoAdvert.Data
                 .HasMany(c => c.Models)
                 .WithOne(e => e.Brand);
 
-            modelBuilder.Entity<Car>()
-            .Property(p => p.Price)
-            .HasColumnType("decimal(18,2)");
-
             modelBuilder.Entity<Car>().HasData(
                 new Car()
                 {
@@ -53,12 +49,12 @@ namespace AutoAdvert.Data
                     Color = "Blue",
                     FirstRegistration = "Vokietija",
                     Description = "Katik nuo tralo, sedi ir vaziuoji",
-                    Price = 2596,
-                    Power = 250,
-                    Miles = 230040,
-                    Year = 2003,
-                    Volume = 20,
-                    Seats = 6,
+                    Price = "2596",
+                    Power = "250",
+                    Miles = "230040",
+                    Year = "2003",
+                    Volume = "20",
+                    Seats = "6",
                 });
 
             base.OnModelCreating(modelBuilder);

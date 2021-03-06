@@ -4,11 +4,14 @@
       'tw-flex-1 tw-mr-4': isDataFrom,
     }"
     class="select tw-border-2 tw-border-gray-300 tw-px-2 tw-py-1"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
   >
-    <option v-if="isDataFrom" selected disabled hidden>{{
+    <option value="" v-if="isDataFrom" selected disabled hidden>{{
       from === "from" ? "Nuo" : "Iki"
     }}</option>
-    <option v-for="type in data" :key="type.id" :value="type">
+    <option value="" selected disabled hidden v-else>---</option>
+    <option v-for="type in data" :key="type.id">
       {{ isDataFrom ? type : type.name }}
     </option>
   </select>
@@ -34,6 +37,12 @@ export default {
       type: String,
       default: "from",
     },
+    modelValue: String,
+  },
+  setup(props) {
+    console.log(props.data);
+    console.log(props.isDataFrom);
+    console.log(props.modelValue);
   },
 };
 </script>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3zhkiZExja3MpcGr5Zk/h6EgPItUSVGc8IfbJhrYjMTkgiw9KMdnuN1lfpWTLHVHT871S8VFT9Bx6QV7sUmRWw==",
+  "dgSpecHash": "J6CcQTKo0A6HoLDDdLDQviK/Eif8bWzYx0z+CcbRRVl/Sqjh3GdesDsuE77PDhRr5Ic9U517qPvjI/rX+uVAUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tmilieska\\source\\repos\\AutoAdvert\\AutoAdvert\\AutoAdvert.csproj",
+  "projectFilePath": "C:\\Users\\tmilieska\\Desktop\\vuejs\\auto-skelbimai\\backend\\AutoAdvert\\AutoAdvert.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tmilieska\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tmilieska\\.nuget\\packages\\microsoft.aspnet.cors\\5.0.0\\microsoft.aspnet.cors.5.0.0.nupkg.sha512",

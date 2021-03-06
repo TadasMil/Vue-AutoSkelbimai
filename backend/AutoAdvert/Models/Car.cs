@@ -22,12 +22,12 @@ namespace AutoAdvert.Models
         public string Color { get; set; }
         public string FirstRegistration { get; set; }
         public string Description { get; set; }
-        public decimal Price { get; set; }
-        public int Power { get; set; }
-        public int Miles { get; set; }
-        public int Year { get; set; }
-        public int Volume { get; set; }
-        public int Seats { get; set; }
+        public string Price { get; set; }
+        public string Power { get; set; }
+        public string Miles { get; set; }
+        public string Year { get; set; }
+        public string Volume { get; set; }
+        public string Seats { get; set; }
         public ICollection<Image> Images { get; set; }
 
     }

@@ -9765,11 +9765,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tmilieska\\source\\repos\\AutoAdvert\\AutoAdvert\\AutoAdvert.csproj",
+      "projectUniqueName": "C:\\Users\\tmilieska\\Desktop\\vuejs\\auto-skelbimai\\backend\\AutoAdvert\\AutoAdvert.csproj",
       "projectName": "AutoAdvert",
-      "projectPath": "C:\\Users\\tmilieska\\source\\repos\\AutoAdvert\\AutoAdvert\\AutoAdvert.csproj",
+      "projectPath": "C:\\Users\\tmilieska\\Desktop\\vuejs\\auto-skelbimai\\backend\\AutoAdvert\\AutoAdvert.csproj",
       "packagesPath": "C:\\Users\\tmilieska\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tmilieska\\source\\repos\\AutoAdvert\\AutoAdvert\\obj\\",
+      "outputPath": "C:\\Users\\tmilieska\\Desktop\\vuejs\\auto-skelbimai\\backend\\AutoAdvert\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tmilieska\\AppData\\Roaming\\NuGet\\NuGet.Config",

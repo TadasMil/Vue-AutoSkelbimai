@@ -57,6 +57,8 @@ namespace AutoAdvert
 
             services.AddScoped<IGenericService<Advert>, AdvertService>();
             services.AddScoped<AttributeService>();
+            services.AddScoped<CarServices>();
+
 
             services.AddControllers();
         }
