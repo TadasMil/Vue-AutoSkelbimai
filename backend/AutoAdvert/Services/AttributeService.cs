@@ -90,7 +90,7 @@ namespace AutoAdvert.Services
         }
         public async Task InsertColor(Car car)
         {
-            var findColor = await _context.Colors.FirstOrDefaultAsync(x => x.Name == car.Color);
+            var findColor = await _context.Colors.FirstOrDefaultAsync(x => x.Name.ToLower() == car.Color.ToLower());
 
             if(findColor == null)
             {
@@ -105,7 +105,7 @@ namespace AutoAdvert.Services
         }
         public async Task InsertCity(Car car)
         {
-            var findCity = await _context.Cities.FirstOrDefaultAsync(x => x.Name == car.City);
+            var findCity = await _context.Cities.FirstOrDefaultAsync(x => x.Name.ToLower() == car.City.ToLower());
 
             if (findCity == null)
             {
@@ -121,7 +121,7 @@ namespace AutoAdvert.Services
         }
         public async Task InsertBodyType (Car car)
         {
-            var findBodyType = await _context.BodyTypes.FirstOrDefaultAsync(x => x.Name == car.BodyType);
+            var findBodyType = await _context.BodyTypes.FirstOrDefaultAsync(x => x.Name.ToLower() == car.BodyType.ToLower());
 
             if (findBodyType == null)
             {
@@ -136,7 +136,7 @@ namespace AutoAdvert.Services
         }
         public async Task InsertFirstRegistration(Car car)
         {
-            var findRegistrationDate = await _context.BodyTypes.FirstOrDefaultAsync(x => x.Name == car.FirstRegistration);
+            var findRegistrationDate = await _context.FirstRegistration.FirstOrDefaultAsync(x => x.Name.ToLower() == car.FirstRegistration.ToLower());
 
             if (findRegistrationDate == null)
             {

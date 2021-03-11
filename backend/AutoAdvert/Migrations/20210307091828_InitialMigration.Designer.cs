@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoAdvert.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210301181645_initilMirton")]
-    partial class initilMirton
+    [Migration("20210307091828_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -117,8 +117,8 @@ namespace AutoAdvert.Migrations
                     b.Property<string>("Gear")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Miles")
-                        .HasColumnType("int");
+                    b.Property<string>("Miles")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");
@@ -126,14 +126,14 @@ namespace AutoAdvert.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Power")
-                        .HasColumnType("int");
+                    b.Property<string>("Power")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Seats")
-                        .HasColumnType("int");
+                    b.Property<string>("Seats")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedOn")
                         .HasColumnType("datetime2");
@@ -141,8 +141,8 @@ namespace AutoAdvert.Migrations
                     b.Property<DateTime>("UploadedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Volume")
-                        .HasColumnType("int");
+                    b.Property<string>("Volume")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WheelPosition")
                         .HasColumnType("nvarchar(max)");
@@ -150,8 +150,8 @@ namespace AutoAdvert.Migrations
                     b.Property<string>("Wheels")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
+                    b.Property<string>("Year")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -168,18 +168,18 @@ namespace AutoAdvert.Migrations
                             FirstRegistration = "Vokietija",
                             FuelType = "Dyzelinas",
                             Gear = "Automatas",
-                            Miles = 230040,
+                            Miles = "230040",
                             Model = "A4",
                             Name = "Audi",
-                            Power = 250,
-                            Price = 2596m,
-                            Seats = 6,
-                            UpdatedOn = new DateTime(2021, 3, 1, 20, 16, 44, 290, DateTimeKind.Local).AddTicks(5973),
-                            UploadedOn = new DateTime(2021, 3, 1, 20, 16, 44, 287, DateTimeKind.Local).AddTicks(2270),
-                            Volume = 20,
+                            Power = "250",
+                            Price = "2596",
+                            Seats = "6",
+                            UpdatedOn = new DateTime(2021, 3, 7, 11, 18, 28, 230, DateTimeKind.Local).AddTicks(5299),
+                            UploadedOn = new DateTime(2021, 3, 7, 11, 18, 28, 227, DateTimeKind.Local).AddTicks(3512),
+                            Volume = "20",
                             WheelPosition = "Priekiniai",
                             Wheels = "Priekiniai",
-                            Year = 2003
+                            Year = "2003"
                         });
                 });
 

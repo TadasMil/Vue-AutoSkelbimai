@@ -42,7 +42,6 @@ namespace AutoAdvert.Services
         }
         public void Insert(Advert obj)
         {
-
             _context.Adverts.Add(obj);
             _context.SaveChanges();
         }

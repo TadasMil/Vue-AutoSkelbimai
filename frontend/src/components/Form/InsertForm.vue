@@ -20,11 +20,16 @@
         class="tw-flex tw-flex-col tw-w-2/6 tw-py-2"
       >
         <label>{{ select.name }}</label>
-        <Input
-          v-model="
-            inputValues[select.model.from ? select.model.from : select.model]
-          "
-        />
+        <Input v-model="inputValues[select.model]" />
+      </div>
+      <!-- CHANGE THIS -->
+      <div
+        v-for="select in numbers"
+        :key="select"
+        class="tw-flex tw-flex-col tw-w-2/6 tw-py-2"
+      >
+        <label>{{ select.name }}</label>
+        <Input v-model.number="inputValues[select.model.from]" />
       </div>
     </div>
     <InsertImage @insertImage="handleImage" :images="images" />
@@ -57,11 +62,17 @@ export default {
   },
 
   setup() {
-    const textInputs = [
+    //REFACTOR THE NUMBERS ARRAY
+    const numbers = [
       optionsFrom.price,
       optionsFrom.power,
       optionsFrom.run,
       optionsFrom.volume,
+      optionsFrom.seats,
+      optionsFrom.year,
+    ];
+
+    const textInputs = [
       options.firstRegistration,
       options.city,
       options.bodyType,
@@ -86,13 +97,10 @@ export default {
         options.wheels,
         options.fuelType,
         options.wheelPosition,
-        optionsFrom.seats,
-        optionsFrom.year,
       ],
     });
 
     onMounted(async () => {
-      console.log(state.inputValues);
       await getBrands();
     });
 
@@ -175,6 +183,7 @@ export default {
       textInputs,
       handleImage,
       submitForm,
+      numbers,
     };
   },
 };

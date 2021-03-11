@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AutoAdvert.Migrations
 {
-    public partial class initilMirton : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,12 +54,12 @@ namespace AutoAdvert.Migrations
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FirstRegistration = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Power = table.Column<int>(type: "int", nullable: false),
-                    Miles = table.Column<int>(type: "int", nullable: false),
-                    Year = table.Column<int>(type: "int", nullable: false),
-                    Volume = table.Column<int>(type: "int", nullable: false),
-                    Seats = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Power = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Miles = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Year = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Volume = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Seats = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UploadedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -181,7 +181,7 @@ namespace AutoAdvert.Migrations
             migrationBuilder.InsertData(
                 table: "Cars",
                 columns: new[] { "Id", "BodyType", "City", "Color", "Description", "FirstRegistration", "FuelType", "Gear", "Miles", "Model", "Name", "Power", "Price", "Seats", "UpdatedOn", "UploadedOn", "Volume", "WheelPosition", "Wheels", "Year" },
-                values: new object[] { 1, "Sedanas", "Vilnius", "Blue", "Katik nuo tralo, sedi ir vaziuoji", "Vokietija", "Dyzelinas", "Automatas", 230040, "A4", "Audi", 250, 2596m, 6, new DateTime(2021, 3, 1, 20, 16, 44, 290, DateTimeKind.Local).AddTicks(5973), new DateTime(2021, 3, 1, 20, 16, 44, 287, DateTimeKind.Local).AddTicks(2270), 20, "Priekiniai", "Priekiniai", 2003 });
+                values: new object[] { 1, "Sedanas", "Vilnius", "Blue", "Katik nuo tralo, sedi ir vaziuoji", "Vokietija", "Dyzelinas", "Automatas", "230040", "A4", "Audi", "250", "2596", "6", new DateTime(2021, 3, 7, 11, 18, 28, 230, DateTimeKind.Local).AddTicks(5299), new DateTime(2021, 3, 7, 11, 18, 28, 227, DateTimeKind.Local).AddTicks(3512), "20", "Priekiniai", "Priekiniai", "2003" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Adverts_CarId",

@@ -4,14 +4,16 @@ using AutoAdvert.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AutoAdvert.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210307121505_changeDataTypesToCarClass")]
+    partial class changeDataTypesToCarClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,8 +141,8 @@ namespace AutoAdvert.Migrations
                     b.Property<DateTime>("UploadedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("Volume")
-                        .HasColumnType("float");
+                    b.Property<int>("Volume")
+                        .HasColumnType("int");
 
                     b.Property<string>("WheelPosition")
                         .HasColumnType("nvarchar(max)");
@@ -172,9 +174,9 @@ namespace AutoAdvert.Migrations
                             Power = 204,
                             Price = 20304,
                             Seats = 6,
-                            UpdatedOn = new DateTime(2021, 3, 7, 14, 24, 6, 64, DateTimeKind.Local).AddTicks(9418),
-                            UploadedOn = new DateTime(2021, 3, 7, 14, 24, 6, 60, DateTimeKind.Local).AddTicks(6074),
-                            Volume = 203.0,
+                            UpdatedOn = new DateTime(2021, 3, 7, 14, 15, 4, 241, DateTimeKind.Local).AddTicks(577),
+                            UploadedOn = new DateTime(2021, 3, 7, 14, 15, 4, 236, DateTimeKind.Local).AddTicks(9645),
+                            Volume = 203,
                             WheelPosition = "Priekiniai",
                             Wheels = "Priekiniai",
                             Year = 2003

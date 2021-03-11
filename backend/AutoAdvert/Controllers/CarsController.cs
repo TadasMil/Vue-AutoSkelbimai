@@ -24,7 +24,7 @@ namespace AutoAdvert.Controllers
 
         // GET: api/Cars
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars([FromBody] Car car)
+        public async Task<ActionResult<IEnumerable<Car>>> GetCars([FromBody] CarDto car)
         {
             var cars = await _service.GetCars(car);
 

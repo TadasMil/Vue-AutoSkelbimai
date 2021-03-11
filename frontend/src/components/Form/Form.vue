@@ -26,13 +26,13 @@
             <Select
               :data="select.from"
               :isDataFrom="true"
-              v-model="inputValues[select.model.from]"
+              v-model.number="inputValues[select.model.from]"
             />
             <Select
               :data="select.to"
               :isDataFrom="true"
               from="to"
-              v-model="inputValues[select.model.to]"
+              v-model.number="inputValues[select.model.to]"
             />
           </div>
         </div>
@@ -53,8 +53,8 @@
 
 <script>
 import { onMounted, reactive, toRefs, watch } from "vue";
+import { useRouter } from "vue-router";
 import { options, optionsFrom, inputTypes } from "../../utilities/options.js";
-import { combineKeys } from "../../composables/useCombining.js";
 import axios from "axios";
 
 import Select from "./Select.vue";
@@ -72,6 +72,8 @@ export default {
       optionsFrom,
       inputValues: { ...inputTypes },
     });
+
+    const router = useRouter();
 
     onMounted(() => {
       getCarsAttributes();
@@ -113,17 +115,16 @@ export default {
     };
 
     const formSubmit = async () => {
-      const newCar = combineKeys(state.inputValues);
-
-      console.log(newCar);
-      await axios
-        .post("https://localhost:44315/api/cars", newCar, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => console.log(err));
+      // await axios
+      //   .post("https://localhost:44315/api/cars", state.inputValues, {
+      //     headers: { "Content-Type": "application/json" },
+      //   })
+      //   .then((res) => {
+      //     console.log(res.data);
+      //     const cars = [...res.data];
+      router.push({ name: "Adverts" });
+      //   })
+      //   .catch((err) => console.log(err));
     };
 
     return { ...toRefs(state), formSubmit };

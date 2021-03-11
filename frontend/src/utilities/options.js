@@ -7,8 +7,8 @@ export const optionsFrom = {
       from: "price",
       to: "priceTo",
     },
-    from: getStaticData(0, 500, 100000),
-    to: getStaticData(0, 500, 100000),
+    from: getStaticData(100, 500, 100000),
+    to: getStaticData(100, 500, 100000),
   },
   power: {
     name: "Galia, kw",

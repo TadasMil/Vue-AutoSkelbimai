@@ -49,12 +49,12 @@ namespace AutoAdvert.Data
                     Color = "Blue",
                     FirstRegistration = "Vokietija",
                     Description = "Katik nuo tralo, sedi ir vaziuoji",
-                    Price = "2596",
-                    Power = "250",
-                    Miles = "230040",
-                    Year = "2003",
-                    Volume = "20",
-                    Seats = "6",
+                    Price = 20304,
+                    Power = 204,
+                    Miles = 200304,
+                    Year = 2003,
+                    Volume = 203,
+                    Seats = 6,
                 });
 
             base.OnModelCreating(modelBuilder);

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoAdvert.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210304162209_changeDataTypeForExistingCarAttributes")]
-    partial class changeDataTypeForExistingCarAttributes
+    [Migration("20210307122407_ChangeDataTypeForCar")]
+    partial class ChangeDataTypeForCar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -117,8 +117,8 @@ namespace AutoAdvert.Migrations
                     b.Property<string>("Gear")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Miles")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Miles")
+                        .HasColumnType("int");
 
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");
@@ -126,14 +126,14 @@ namespace AutoAdvert.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Power")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Power")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Price")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Seats")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Seats")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedOn")
                         .HasColumnType("datetime2");
@@ -141,8 +141,8 @@ namespace AutoAdvert.Migrations
                     b.Property<DateTime>("UploadedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Volume")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Volume")
+                        .HasColumnType("float");
 
                     b.Property<string>("WheelPosition")
                         .HasColumnType("nvarchar(max)");
@@ -150,8 +150,8 @@ namespace AutoAdvert.Migrations
                     b.Property<string>("Wheels")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Year")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -168,18 +168,18 @@ namespace AutoAdvert.Migrations
                             FirstRegistration = "Vokietija",
                             FuelType = "Dyzelinas",
                             Gear = "Automatas",
-                            Miles = "230040",
+                            Miles = 200304,
                             Model = "A4",
                             Name = "Audi",
-                            Power = "250",
-                            Price = "2596",
-                            Seats = "6",
-                            UpdatedOn = new DateTime(2021, 3, 4, 18, 22, 9, 212, DateTimeKind.Local).AddTicks(8168),
-                            UploadedOn = new DateTime(2021, 3, 4, 18, 22, 9, 210, DateTimeKind.Local).AddTicks(6148),
-                            Volume = "20",
+                            Power = 204,
+                            Price = 20304,
+                            Seats = 6,
+                            UpdatedOn = new DateTime(2021, 3, 7, 14, 24, 6, 64, DateTimeKind.Local).AddTicks(9418),
+                            UploadedOn = new DateTime(2021, 3, 7, 14, 24, 6, 60, DateTimeKind.Local).AddTicks(6074),
+                            Volume = 203.0,
                             WheelPosition = "Priekiniai",
                             Wheels = "Priekiniai",
-                            Year = "2003"
+                            Year = 2003
                         });
                 });
 
