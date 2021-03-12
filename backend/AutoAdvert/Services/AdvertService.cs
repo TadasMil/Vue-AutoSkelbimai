@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AutoAdvert.Services
 {
@@ -51,7 +52,22 @@ namespace AutoAdvert.Services
 
             _context.Entry(findAdvert).CurrentValues.SetValues(obj);
             _context.SaveChanges();
-            
+
+        }
+        public async Task<ActionResult<IEnumerable<Advert>>> GetAdvertToSpecificCar(IEnumerable<Car> cars)
+        {
+            List<Advert> adverts = new List<Advert>();
+
+            foreach (Car car in cars)
+            {
+                var advert = await _context.Adverts.Where(x => x.Car == car).Include(x => x.Car).ThenInclude(x => x.Images).FirstOrDefaultAsync();
+                if (advert != null)
+                {
+                    adverts.Add(advert);
+                }
+            }
+
+            return adverts.ToList();
         }
     }
 }

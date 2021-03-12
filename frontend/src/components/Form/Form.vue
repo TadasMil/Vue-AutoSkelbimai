@@ -54,6 +54,7 @@
 <script>
 import { onMounted, reactive, toRefs, watch } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 import { options, optionsFrom, inputTypes } from "../../utilities/options.js";
 import axios from "axios";
 
@@ -74,6 +75,7 @@ export default {
     });
 
     const router = useRouter();
+    const store = useStore();
 
     onMounted(() => {
       getCarsAttributes();
@@ -115,16 +117,13 @@ export default {
     };
 
     const formSubmit = async () => {
-      // await axios
-      //   .post("https://localhost:44315/api/cars", state.inputValues, {
-      //     headers: { "Content-Type": "application/json" },
-      //   })
-      //   .then((res) => {
-      //     console.log(res.data);
-      //     const cars = [...res.data];
-      router.push({ name: "Adverts" });
-      //   })
-      //   .catch((err) => console.log(err));
+      const cars = { ...state.inputValues };
+
+      const adverts = await store.dispatch("fetchAdverts", cars);
+
+      if (adverts.length) {
+        router.push({ name: "Adverts" });
+      }
     };
 
     return { ...toRefs(state), formSubmit };

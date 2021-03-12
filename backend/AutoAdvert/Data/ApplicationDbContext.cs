@@ -34,29 +34,6 @@ namespace AutoAdvert.Data
                 .HasMany(c => c.Models)
                 .WithOne(e => e.Brand);
 
-            modelBuilder.Entity<Car>().HasData(
-                new Car()
-                {
-                    Id = 1,
-                    Name = "Audi",
-                    Model = "A4",
-                    FuelType = "Dyzelinas",
-                    WheelPosition = "Priekiniai",
-                    City = "Vilnius",
-                    Gear = "Automatas",
-                    Wheels = "Priekiniai",
-                    BodyType = "Sedanas",
-                    Color = "Blue",
-                    FirstRegistration = "Vokietija",
-                    Description = "Katik nuo tralo, sedi ir vaziuoji",
-                    Price = 20304,
-                    Power = 204,
-                    Miles = 200304,
-                    Year = 2003,
-                    Volume = 203,
-                    Seats = 6,
-                });
-
             base.OnModelCreating(modelBuilder);
         }
 

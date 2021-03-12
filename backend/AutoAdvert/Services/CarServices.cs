@@ -17,7 +17,7 @@ namespace AutoAdvert.Services
             _context = context;
         }
 
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars(CarDto car)
+        public async Task<IEnumerable<Car>> GetCars(CarDto car)
         {
             //var cars = _context.Cars.Where(x => (x.Name != null && x.Name == car.Name) || (x.Model != null && x.Model == car.Model) || (x.Gear != null && x.Gear == car.Gear));
 
@@ -104,7 +104,23 @@ namespace AutoAdvert.Services
                 };
             };
 
-            return cars.ToList();
+            return cars.Include(x => x.Images).ToList();
+        }
+
+        public async Task<ActionResult<IEnumerable<Advert>>> GetCarsAdverts(IEnumerable<Car> cars)
+        {
+            List<Advert> adverts = new List<Advert>();
+
+            foreach(Car car in cars)
+            {
+                var advert = _context.Adverts.Where(x => x.Car == car).Include(x => x.Car).FirstOrDefault();
+                if (advert != null)
+                {
+                    adverts.Add(advert);
+                }
+            }
+
+            return adverts.ToList();
         }
     }
 }

@@ -1,24 +1,34 @@
 <template>
-  <div>all adverts</div>
+  <div>
+    <Advert
+      v-for="advert in adverts.adverts"
+      :key="advert.id"
+      v-bind="advert"
+    />
+  </div>
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, reactive, toRefs } from "vue";
+import { useStore } from "vuex";
+
+import Advert from "../../components/Advert/Advert.vue";
+
 export default {
   name: "Adverts",
-  props: {
-    cars: {
-      type: Array,
-      default: () => {},
-    },
+  components: {
+    Advert,
   },
+  setup() {
+    const store = useStore();
 
-  setup(props, { root }) {
-    const counter = computed(() => root.$store.state.adverts);
+    const state = reactive({
+      adverts: computed(() => store.state.adverts),
+    });
 
-    console.log(counter);
+    console.log(state.adverts);
 
-    console.log(props.cars);
+    return { ...toRefs(state) };
   },
 };
 </script>

@@ -16,19 +16,24 @@ namespace AutoAdvert.Controllers
     public class CarsController : ControllerBase
     {
         private readonly CarServices _service;
+        private readonly AdvertService _advertService;
 
-        public CarsController(CarServices service)
+
+        public CarsController(CarServices service, AdvertService advertService)
         {
             _service = service;
+            _advertService = advertService;
         }
 
         // GET: api/Cars
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars([FromBody] CarDto car)
+        public async Task<ActionResult<IEnumerable<Advert>>> GetCars([FromBody] CarDto car)
         {
             var cars = await _service.GetCars(car);
 
-            return cars;
+            var adverts = await _advertService.GetAdvertToSpecificCar(cars);
+
+            return adverts;
         }
     }
 }

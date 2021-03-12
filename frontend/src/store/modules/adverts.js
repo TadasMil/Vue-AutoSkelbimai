@@ -2,6 +2,7 @@ import axios from "axios";
 
 const state = {
   adverts: [],
+  advert: {},
 };
 
 const actions = {
@@ -13,14 +14,31 @@ const actions = {
         headers: { "Content-Type": "application/json" },
       }
     );
-    console.log(response);
-    commit("SET_ADVERTS", response);
+
+    commit("SET_ADVERTS", response.data);
+
+    return response.data;
+  },
+
+  fetchAdvertById: async ({ commit }, advertId) => {
+    console.log(advertId);
+    const response = await axios.get(
+      `https://localhost:44315/api/adverts/${advertId}`
+    );
+
+    commit("SET_ADVERT", response.data.car);
+
+    return response.data;
   },
 };
 
 const mutations = {
   SET_ADVERTS: (state, adverts) => {
     state.adverts = adverts;
+  },
+  SET_ADVERT: (state, advert) => {
+    state.advert = {};
+    state.advert = { ...advert };
   },
 };
 
